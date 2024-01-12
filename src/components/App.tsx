@@ -22,8 +22,19 @@ function App() {
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='flex flex-col w-3/4 md:w-1/2 mt-20 p-6 border-[1px] rounded-md gap-6'>
-        <h1 className="text-center text-3xl font-semibold text-white">
+      <div className='
+        flex 
+        flex-col
+        gap-6
+        w-full
+        mt-20
+        p-6
+        lg:w-1/2 
+        md:border-[1px] 
+        md:w-3/4
+        rounded-md'
+      >
+        <h1 className="text-center text-4xl font-bold text-white">
           To Do List
         </h1>
         <Form

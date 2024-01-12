@@ -13,25 +13,27 @@ const Form = () => {
 
   const dispatch = useDispatch()
 
-  const handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    setTask(evt.target.value)
+  const handleInputChange = 
+    (evt: React.ChangeEvent<HTMLInputElement>) => {
+      setTask(evt.target.value)
   };
 
-  const handleSubmit = useCallback((evt: unknown) => {
-    evt.preventDefault();
+  const handleSubmit = useCallback(
+    (evt: React.FormEvent) => {
+      evt.preventDefault();
 
-    if (task.length === 0 || task === ' ') {
-      toast.error('Поле пустое!')
-      return
-    }
+      if (task.trim().length === 0) {
+        toast.error('Поле пустое!')
+        return
+      }
 
-    dispatch(todoAdd({
-      id: nanoid(),
-      title: task,
-      isActive: true
-    }))
+      dispatch(todoAdd({
+        id: nanoid(),
+        title: task,
+        isActive: true
+      }))
 
-    setTask('')
+      setTask('')
   }, [dispatch, task])
   
 
